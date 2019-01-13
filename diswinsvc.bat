@@ -29,6 +29,7 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 
 :MENU
+@cls
 @echo . .....................................................................................
 @echo .                            Developed by: TIGAXMT                                    .                                                        
 @echo .......................................................................................
@@ -53,6 +54,7 @@ IF %M%==3 GOTO SLMGREXP
 IF %M%==4 GOTO HARDWARE
 IF %M%==5 GOTO RBT
 IF %M%==0 GOTO EOF
+IF %M%>5 GOTO MENU
 
 
 :DUS
