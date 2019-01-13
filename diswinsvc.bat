@@ -29,23 +29,29 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 
 :MENU
-@echo.
-@echo ...............................................
-@echo PRESS 1, 2, 3 or 4 to select your task, or 0 to exit.
-@echo ...............................................
-@echo.
-@echo 1 - Disable Unnecessary Services
-@echo 2 - Disable Unnecessary Services Powerful (some features can be disable e.g: IPv6)
-@echo 3 - Windows License Expiration
-@echo 4 - Reboot Windows
-@echo 0 - Exit
-@echo.
+@echo . .....................................................................................
+@echo .                            Developed by: TIGAXMT                                    .                                                        
+@echo .......................................................................................
+@echo .                                                                                     .
+@echo .                                                                                     .
+@echo . PRESS 1, 2, 3, 4 or 5 to select your task, or 0 to exit .                           .   
+@echo .                                                                                     .
+@echo . 1 - Disable Unnecessary Services                                                    .
+@echo . 2 - Disable Unnecessary Services Powerful (some features can be disable e.g: IPv6)  .
+@echo . 3 - Windows License Expiration                                                      .
+@echo . 4 - Hardware Info                                                                   .
+@echo . 5 - Reboot Windows                                                                  .
+@echo . 0 - Exit                                                                            .
+@echo .                                                                                     .
+@echo .                                                                                     .
+@echo .......................................................................................
 
 @set /P M=Type 1, 2, 3, 4 or 0 then press ENTER:
 IF %M%==1 GOTO DUS
 IF %M%==2 GOTO DUSP
 IF %M%==3 GOTO SLMGREXP
-IF %M%==4 GOTO RBT
+IF %M%==4 GOTO HARDWARE
+IF %M%==5 GOTO RBT
 IF %M%==0 GOTO EOF
 
 
@@ -172,6 +178,24 @@ GOTO MENU
 :SLMGREXP
 
 @slmgr -xpr
+@cls
+GOTO MENU
+
+:HARDWARE
+@cls
+@echo CPU
+@wmic cpu get name, numberofcores, maxclockspeed, status
+
+@echo RAM
+@wmic MEMORYCHIP get DeviceLocator, MemoryType, TypeDetail, Speed
+@systeminfo | findstr /C:”Total Physical Memory
+
+@echo GPU
+@wmic path win32_VideoController get name
+
+@echo HDD
+@wmic logicaldisk get Caption, DriveType, Size 
+@pause
 @cls
 GOTO MENU
 
