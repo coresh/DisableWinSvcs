@@ -13,6 +13,4 @@ Just download the source code and then run the batch file named diswinsvc.bat
 
 * Information about the hardware
 
-* Disable Suggested Apps on Windows 10
-
-* Remove Watermark for not activated Windows
+* Install Deafult Apps

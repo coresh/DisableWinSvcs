@@ -1,4 +1,4 @@
-echo off
+﻿echo off
 
 :: BatchGotAdmin
 :-------------------------------------
@@ -37,12 +37,11 @@ if '%errorlevel%' NEQ '0' (
 @echo .                                                                                     .  
 @echo .                                                                                     .
 @echo . 1 - Disable Unnecessary Services                                                    .
-@echo . 2 - Disable Unnecessary Services Powerful (some features can be disable e.g: IPv6)  .
+@echo . 2 - Disable Unnecessary Services Powerful 					    .
 @echo . 3 - Windows License Expiration                                                      .
 @echo . 4 - Hardware Info                                                                   .
-@echo . 5 - Disable Suggested Apps (Windows 10)                                             .
-@echo . 6 - Remove WaterMark                                                                .
-@echo . 7 - Reboot Windows                                                                  .
+@echo . 5 - Install Default Apps (Avast, Spotify, Firefox etc)                              .
+@echo . 6 - Reboot Windows                                                                  .
 @echo . 0 - Exit                                                                            .
 @echo .                                                                                     .
 @echo .                                                                                     .
@@ -53,9 +52,8 @@ IF %M%==1 GOTO DUS
 IF %M%==2 GOTO DUSP
 IF %M%==3 GOTO SLMGREXP
 IF %M%==4 GOTO HARDWARE
-IF %M%==5 GOTO SUGGESTAPPS
-IF %M%==6 GOTO WATERMARK
-IF %M%==7 GOTO RBT
+IF %M%==5 GOTO NINITE
+IF %M%==6 GOTO RBT
 IF %M%==0 GOTO EOF
 IF %M%>5 GOTO MENU
 
@@ -204,26 +202,15 @@ GOTO MENU
 @cls
 GOTO MENU
 
-:SUGGESTAPPS
+:NINITE
 
 @cls
-@echo Disabling Suggested Apps ....
-REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent /v DisableWindowsConsumerFeatures /t REG_DWORD /d 1 /f
-@pause
+.\handler\ninite.exe
 @cls
+@echo Apps installed successfully!
+@cls
+@pause
 GOTO MENU
-
-:WATERMARK
-
-@cls
-@echo WARNING: YOUR COMPUTER WILL BE REBOOTTED
-@echo
-@pause
-
-@echo off
-Taskkill /F /IM explorer.exe
-explorer.exe
-GOTO RBT
 
 :RBT
 @shutdown /r /t 0
