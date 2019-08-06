@@ -37,7 +37,7 @@ if '%errorlevel%' NEQ '0' (
 @echo .                                                                                     .  
 @echo .                                                                                     .
 @echo . 1 - Disable Unnecessary Services                                                    .
-@echo . 2 - Disable Unnecessary Services Powerful 					    .
+@echo . 2 - Disable Unnecessary Services Powerful 					                        .
 @echo . 3 - Windows License Expiration                                                      .
 @echo . 4 - Hardware Info                                                                   .
 @echo . 5 - Install Default Apps (Avast, Spotify, Firefox etc)                              .
@@ -67,10 +67,6 @@ IF %M%>5 GOTO MENU
 @net stop DPS > null 2>&1
 @sc config DPS start= disabled
 @echo Disabling Diagnostic Policy Service
-
-@net stop Spooler > null 2>&1
-@sc config Spooler start= disabled
-@echo Disabling Print Spooler
 
 @net stop seclogon > null 2>&1
 @sc config seclogon start= disabled
@@ -121,10 +117,6 @@ GOTO MENU
 @net stop DPS > null 2>&1
 @sc config DPS start= disabled
 @echo Disabling Diagnostic Policy Service
-
-@net stop Spooler > null 2>&1
-@sc config Spooler start= disabled
-@echo Disabling Print Spooler
 
 @net stop seclogon > null 2>&1
 @sc config seclogon start= disabled
