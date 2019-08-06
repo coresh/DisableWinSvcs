@@ -37,7 +37,7 @@ if '%errorlevel%' NEQ '0' (
 @echo .                                                                                     .  
 @echo .                                                                                     .
 @echo . 1 - Disable Unnecessary Services                                                    .
-@echo . 2 - Disable Unnecessary Services Powerful 					                        .
+@echo . 2 - Disable Unnecessary Services Powerful 					      .
 @echo . 3 - Windows License Expiration                                                      .
 @echo . 4 - Hardware Info                                                                   .
 @echo . 5 - Install Default Apps (Avast, Spotify, Firefox etc)                              .
