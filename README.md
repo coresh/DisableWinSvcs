@@ -13,4 +13,4 @@ Just download the source code and then run the batch file named diswinsvc.bat
 
 * Information about the hardware
 
-* Install Deafult Apps
+* Install Default Apps
