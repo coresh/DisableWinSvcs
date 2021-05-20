@@ -194,16 +194,6 @@ GOTO MENU
 @cls
 GOTO MENU
 
-:NINITE
-
-@cls
-.\handler\ninite.exe
-@cls
-@echo Apps installed successfully!
-@cls
-@pause
-GOTO MENU
-
 :RBT
 @shutdown /r /t 0
 
